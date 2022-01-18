@@ -7,10 +7,7 @@ const ApiContextProvider = (props) => {
   const token = props.cookies.get("current-token");
   const [profile, setProfile] = useState([]);
   const [profiles, setProfiles] = useState([]);
-  const [editedProfile, setEditedProfile] = useState({
-    id: "",
-    nickName: "",
-  });
+  const [editedProfile, setEditedProfile] = useState({ id: "", nickName: "" });
   const [askList, setAskList] = useState([]);
   const [askListFull, setAskListFull] = useState([]);
   const [inbox, setInbox] = useState([]);
@@ -20,7 +17,7 @@ const ApiContextProvider = (props) => {
     const getMyProfile = async () => {
       try {
         const resmy = await axios.get(
-          "http://localhost:8000/api/user/myprofile/",
+          "http://localhost:8001/api/user/myprofile/",
           {
             headers: {
               Authorization: `Token ${token}`,
@@ -28,7 +25,7 @@ const ApiContextProvider = (props) => {
           }
         );
         const res = await axios.get(
-          "http://localhost:8000/api/user/approval/",
+          "http://localhost:8001/api/user/approval/",
           {
             headers: {
               Authorization: `Token ${token}`,
@@ -55,7 +52,7 @@ const ApiContextProvider = (props) => {
 
     const getProfile = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/user/profile/", {
+        const res = await axios.get("http://localhost:8001/api/user/profile/", {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -65,10 +62,9 @@ const ApiContextProvider = (props) => {
         console.log("error");
       }
     };
-
     const getInbox = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/dm/inbox/", {
+        const res = await axios.get("http://localhost:8001/api/dm/inbox/", {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -89,7 +85,7 @@ const ApiContextProvider = (props) => {
     cover.name && createData.append("img", cover, cover.name);
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/user/profile/",
+        "http://localhost:8001/api/user/profile/",
         createData,
         {
           headers: {
@@ -108,7 +104,7 @@ const ApiContextProvider = (props) => {
   const deleteProfile = async () => {
     try {
       await axios.delete(
-        `http://localhost:8000/api/user/profile/${profile.id}/`,
+        `http://localhost:8001/api/user/profile/${profile.id}/`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -132,7 +128,7 @@ const ApiContextProvider = (props) => {
     cover.name && editData.append("img", cover, cover.name);
     try {
       const res = await axios.put(
-        `http://localhost:8000/api/user/profile/${profile.id}/`,
+        `http://localhost:8001/api/user/profile/${profile.id}/`,
         editData,
         {
           headers: {
@@ -150,7 +146,7 @@ const ApiContextProvider = (props) => {
   const newRequestFriend = async (askData) => {
     try {
       const res = await axios.post(
-        `http://localhost:8000/api/user/approval/`,
+        `http://localhost:8001/api/user/approval/`,
         askData,
         {
           headers: {
@@ -167,7 +163,7 @@ const ApiContextProvider = (props) => {
 
   const sendDMCont = async (uploadDM) => {
     try {
-      await axios.post(`http://localhost:8000/api/dm/message/`, uploadDM, {
+      await axios.post(`http://localhost:8001/api/dm/message/`, uploadDM, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Token ${token}`,
@@ -181,7 +177,7 @@ const ApiContextProvider = (props) => {
   const changeApprovalRequest = async (uploadDataAsk, ask) => {
     try {
       const res = await axios.put(
-        `http://localhost:8000/api/user/approval/${ask.id}/`,
+        `http://localhost:8001/api/user/approval/${ask.id}/`,
         uploadDataAsk,
         {
           headers: {
@@ -207,7 +203,7 @@ const ApiContextProvider = (props) => {
 
       !resp[0]
         ? await axios.post(
-            `http://localhost:8000/api/user/approval/`,
+            `http://localhost:8001/api/user/approval/`,
             newDataAsk,
             {
               headers: {
@@ -217,7 +213,7 @@ const ApiContextProvider = (props) => {
             }
           )
         : await axios.put(
-            `http://localhost:8000/api/user/approval/${resp[0].id}/`,
+            `http://localhost:8001/api/user/approval/${resp[0].id}/`,
             newDataAskPut,
             {
               headers: {

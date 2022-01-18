@@ -62,7 +62,7 @@ const Ask = ({ ask, prof }) => {
           color="primary"
           onClick={() => changeApproval()}
         >
-          Approve
+          承認する
         </Button>
       ) : (
         <button className="mail" onClick={() => setModalIsOpen(true)}>

@@ -60,13 +60,11 @@ const ProfileManager = () => {
     const fileInput = document.getElementById("imageInput");
     fileInput.click();
   };
-
   const handleInputChange = () => (event) => {
     const value = event.target.value;
     const name = event.target.name;
     setEditedProfile({ ...editedProfile, [name]: value });
   };
-
   return (
     <div className={classes.profile}>
       <div className="image-wrapper">
@@ -74,12 +72,11 @@ const ProfileManager = () => {
           <img src={profile.img} alt="profile" className="profile-image" />
         ) : (
           <img
-            src="http://127.0.0.1:8000/media/image/null.png"
+            src="http://127.0.0.1:8001/media/image/null.png"
             alt="profile"
             className="profile-image"
           />
         )}
-
         <input
           type="file"
           id="imageInput"

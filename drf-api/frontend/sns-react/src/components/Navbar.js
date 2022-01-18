@@ -26,10 +26,13 @@ const Navbar = (props) => {
     window.location.href = "/";
   };
   return (
-    <AppBar position="static">
+    <AppBar
+      position="static"
+      style={{ color: "#fff", backgroundColor: "#000" }}
+    >
       <Toolbar>
         <Typography variant="h5" className={classes.title}>
-          SNS App
+          ONE Equal
         </Typography>
         <Badge
           className={classes.bg}

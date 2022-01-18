@@ -42,7 +42,7 @@ const Main = () => {
         <h3 className="title-ask">
           {" "}
           <BsFillPeopleFill className="badge" />
-          Approval request list
+          承認リクエスト
         </h3>
         <div className="app-details">
           <div className="task-list">
@@ -65,7 +65,7 @@ const Main = () => {
       <Grid item xs={4}>
         <h3>
           <GoMail className="badge" />
-          DM Inbox
+          ダイレクトメッセージ
         </h3>
         <div className="app-dms">
           <div className="task-list">

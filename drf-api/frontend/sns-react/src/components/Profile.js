@@ -24,13 +24,13 @@ const Profile = ({ profileData, askData }) => {
   };
 
   return (
-    <Card style={{ position: "relative", display: "flex", marginBottom: 10 }}>
+    <Card style={{ position: "relative", display: "flex", margin: 20 }}>
       {profileData.img ? (
         <CardMedia style={{ minWidth: 100 }} image={profileData.img} />
       ) : (
         <CardMedia
           style={{ minWidth: 100 }}
-          image="http://127.0.0.1:8000/media/image/null.png"
+          image="http://127.0.0.1:8001/media/image/null.png"
         />
       )}
 
@@ -45,7 +45,7 @@ const Profile = ({ profileData, askData }) => {
             color="primary"
             onClick={() => newRequest()}
           >
-            Ask as friend
+            友達申請
           </Button>
         ) : (
           <Button
@@ -55,7 +55,7 @@ const Profile = ({ profileData, askData }) => {
             color="primary"
             disabled
           >
-            Ask as friend
+            友達申請
           </Button>
         )}
       </CardContent>
